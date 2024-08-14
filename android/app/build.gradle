@@ -1,0 +1,39 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin" // Certifique-se de que o plugin Flutter está aplicado corretamente
+}
+
+android {
+    namespace = "com.example.flutter_application_1"
+    compileSdk = 34 // Atualize para a versão mais recente do SDK
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId = "com.example.flutter_application_1"
+        minSdk = 21 // Defina o mínimo SDK necessário
+        targetSdk = 34 // Atualize para a versão mais recente do SDK
+        versionCode = 1
+        versionName = "1.0"
+    }
+
+    buildTypes {
+        release {
+            // O valor de signingConfig deve estar correto, certifique-se de que 'debug' é o que você deseja aqui.
+            // Se você estiver lançando para produção, você deve configurar um keystore apropriado.
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
